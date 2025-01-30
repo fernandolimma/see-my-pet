@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Pet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Editar Pet</h2>
+        <form id="editPetForm">
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Nome</label>
+                <input type="text" id="editName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Raça</label>
+                <input type="text" id="editBreed" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Idade</label>
+                <input type="number" id="editAge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">WhatsApp do Tutor</label>
+                <input type="text" id="editWhatsApp" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Endereço do Tutor</label>
+                <input type="text" id="editAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Salvar Alterações</button>
+        </form>
+
+        <!-- Implementação do Qr code -->
+        <div class="bg-gray-50 px-6 py-4">
+            <h3 class="text-lg font-medium text-gray-700">QR Codes</h3>
+            <div class="mt-4 flex space-x-4">
+                <div>
+                    <p class="text-sm text-gray-600">Visualização Pública</p>
+                    <img id="viewQRCode" src="" alt="QR Code de Visualização" class="w-32 h-32">
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600">Edição (Apenas Tutor)</p>
+                    <img id="editQRCode" src="" alt="QR Code de Edição" class="w-32 h-32">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="http://localhost:5000/js/scripts.js" defer></script>
+</body>
+</html>

@@ -4,7 +4,6 @@ function toggleDetails() {
     detailsSection.classList.toggle('hidden');
 }
 
-// scripts.js
 async function fetchPetData(petId) {
     try {
         const response = await fetch(`http://localhost:5000/api/pets/${petId}`);
@@ -29,7 +28,7 @@ function populatePetData(petData) {
 }
 
 async function loadPetData() {
-    const petId = 'SEU_PET_ID_AQUI'; // Substitua pelo ID do PET que você quer carregar
+    const petId = '679aa395df4ac7f68b9f0a3c'; // Substitua pelo ID do PET que você quer carregar
     const petData = await fetchPetData(petId);
     if (petData) {
         populatePetData(petData);
@@ -37,100 +36,6 @@ async function loadPetData() {
         alert('Erro ao carregar os dados do PET.');
     }
 }
-
-// Carregar os dados do PET quando a página carregar
-window.onload = loadPetData;
-
-async function updatePetData(petId, updatedData) {
-    try {
-        const response = await fetch(`http://localhost:5000/api/pets/${petId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` // Adicione o token JWT aqui
-            },
-            body: JSON.stringify(updatedData)
-        });
-        if (!response.ok) {
-            throw new Error('Failed to update pet data');
-        }
-        const updatedPet = await response.json();
-        return updatedPet;
-    } catch (error) {
-        console.error('Error updating pet data:', error);
-        return null;
-    }
-}
-
-document.getElementById('editPetForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const petId = 'SEU_PET_ID_AQUI'; // Substitua pelo ID do PET que você quer editar
-    const updatedData = {
-        name: document.getElementById('editName').value,
-        breed: document.getElementById('editBreed').value,
-        age: document.getElementById('editAge').value,
-        contact: {
-            whatsapp: document.getElementById('editWhatsApp').value,
-            address: document.getElementById('editAddress').value
-        }
-    };
-    const updatedPet = await updatePetData(petId, updatedData);
-    if (updatedPet) {
-        alert('Dados atualizados com sucesso!');
-        populatePetData(updatedPet);
-    } else {
-        alert('Erro ao atualizar os dados do PET.');
-    }
-});
-
-
-async function loginTutor(email, password) {
-    try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        });
-        if (!response.ok) {
-            throw new Error('Login failed');
-        }
-        const data = await response.json();
-        localStorage.setItem('token', data.token); // Salvar o token no localStorage
-        return data.token;
-    } catch (error) {
-        console.error('Error logging in:', error);
-        return null;
-    }
-}
-
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    const token = await loginTutor(email, password);
-    if (token) {
-        alert('Login successful!');
-        window.location.href = '/'; // Redirecionar para a página principal
-    } else {
-        alert('Login failed. Please check your credentials.');
-    }
-});
-
-
-function checkAuth() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        window.location.href = '/login.html'; // Redirecionar para a página de login
-    }
-}
-
-// Verificar autenticação ao carregar a página
-window.onload = () => {
-    checkAuth();
-    loadPetData();
-};
 
 async function fetchQRCode(url, elementId) {
     try {
@@ -150,10 +55,9 @@ async function loadQRCodes(petId) {
     await fetchQRCode(`http://localhost:5000/api/pets/${petId}/qr/edit`, 'editQRCode');
 }
 
-// Carregar os QR Codes quando a página carregar
+// Carregar os dados do PET e QR Codes quando a página carregar
 window.onload = () => {
-    checkAuth();
     loadPetData();
-    const petId = 'SEU_PET_ID_AQUI'; // Substitua pelo ID do PET que você quer carregar
+    const petId = '679aa395df4ac7f68b9f0a3c'; // Substitua pelo ID do PET que você quer carregar
     loadQRCodes(petId);
 };
