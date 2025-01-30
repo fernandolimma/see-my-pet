@@ -14,9 +14,9 @@ exports.getPet = async (req, res) => {
 };
 
 exports.createPet = async (req, res) => {
-    const { name, breed, age, tutor, contact, health, diet, behavior, care } = req.body;
+    const { name, breed, age, tutor, whatsapp, address, health, diet, behavior, care } = req.body;
     try {
-        const pet = new Pet({ name, breed, age, tutor, contact, health, diet, behavior, care });
+        const pet = new Pet({ name, breed, age, tutor, whatsapp, address, health, diet, behavior, care });
         const savedPet = await pet.save();
         res.status(201).json(savedPet);
     } catch (err) {

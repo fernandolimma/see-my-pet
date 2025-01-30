@@ -16,28 +16,30 @@ const petSchema = new mongoose.Schema({
     tutor: { 
         type: String, 
         required: true 
+    },    
+    address: { 
+        type: String, 
+        required: true 
     },
-    contact: {
-        whatsapp: { 
-            type: String, 
-            required: true 
-        },
-        address: { 
-            type: String, 
-            required: true 
-        },
+    whatsapp: { 
+        type: String, 
+        required: true 
     },
     health: { 
-        type: String 
+        type: String,
+        required: true 
     },
     diet: { 
-        type: String 
+        type: String,
+        required: true 
     },
     behavior: { 
-        type: String 
+        type: String,
+        required: true 
     },
     care: { 
-        type: String 
+        type: String,
+        required: true 
     },
 });
 

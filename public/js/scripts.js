@@ -23,8 +23,12 @@ function populatePetData(petData) {
     document.getElementById('petBreed').textContent = petData.breed;
     document.getElementById('petAge').textContent = `${petData.age} anos`;
     document.getElementById('tutorName').innerHTML = `<span class="font-medium">Tutor:</span><span class="text-blue-500">${petData.tutor}</span>`;
-    document.getElementById('tutorWhatsApp').innerHTML = `<span class="font-medium">WhatsApp:</span><a href="https://wa.me/${petData.contact.whatsapp}" target="_blank" class="text-blue-500 hover:underline">${petData.contact.whatsapp}</a>`;
-    document.getElementById('tutorAddress').innerHTML = `<span class="font-medium">Endereço:</span><span class="text-blue-500">${petData.contact.address}</span>`;
+    document.getElementById('tutorWhatsApp').innerHTML = `<span class="font-medium">WhatsApp:</span><a href="https://wa.me/${petData.whatsapp}" target="_blank" class="text-blue-500 hover:underline">${petData.whatsapp}</a>`;
+    document.getElementById('tutorAddress').innerHTML = `<span class="font-medium">Endereço:</span><span class="text-blue-500">${petData.address}</span>`;
+    document.getElementById('petBehavior').textContent = petData.behavior;
+    document.getElementById('petCare').textContent = petData.care;
+    document.getElementById('petDiet').textContent = petData.diet;
+    document.getElementById('petHealt').textContent = petData.healt;
 }
 
 async function loadPetData() {

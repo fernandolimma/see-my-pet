@@ -1,3 +1,5 @@
+require('dotenv').config(); // Carrega as variáveis de ambiente
+
 const mongoose = require('mongoose');
 
 // Configuração global do Mongoose

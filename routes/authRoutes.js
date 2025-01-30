@@ -1,3 +1,5 @@
+require('dotenv').config(); // Carrega as variáveis de ambiente
+
 const express = require('express');
 const router = express.Router();
 const Tutor = require('../models/Tutor');

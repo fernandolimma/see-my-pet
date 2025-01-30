@@ -1,3 +1,5 @@
+require('dotenv').config(); // Carrega as variáveis de ambiente
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Tutor = require('../models/Tutor');
